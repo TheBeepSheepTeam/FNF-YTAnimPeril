@@ -196,7 +196,7 @@ class AchievementsMenuState extends MusicBeatState
 				openSubState(new ResetAchievementSubstate());
 			}
 		}
-		if(FlxG.mouse.wheel != 0){
+		if(FlxG.mouse.wheel != 0) {
 			FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
 			changeSelection(-FlxG.mouse.wheel);
 		}
