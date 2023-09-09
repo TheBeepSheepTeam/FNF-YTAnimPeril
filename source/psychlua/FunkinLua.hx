@@ -1576,6 +1576,8 @@ class FunkinLua {
 		return 'linux';
 		#elseif mac
 		return 'mac';
+		#elseif hl
+		return 'hashlink';
 		#elseif (html5 || emscripten)
 		return 'browser';
 		#elseif webos
@@ -1588,6 +1590,8 @@ class FunkinLua {
 		return 'iphonesimulator';
 		#elseif switch
 		return 'switch';
+		#elseif neko
+		return 'neko';
 		#else
 		return 'unknown';
 		#end
