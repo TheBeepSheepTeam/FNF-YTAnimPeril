@@ -27,6 +27,7 @@ class Conductor
 
 	public function new()
 	{
+		// why does haxe need this tho
 	}
 
 	public static function judgeNote(arr:Array<Rating>, diff:Float=0):Rating // die
@@ -140,10 +141,8 @@ class Conductor
 	}
 
 	public static function set_bpm(newBPM:Float):Float {
-		bpm = newBPM;
-		crochet = calculateCrochet(bpm);
+		crochet = calculateCrochet(newBPM);
 		stepCrochet = crochet / 4;
-
 		return bpm = newBPM;
 	}
 }
