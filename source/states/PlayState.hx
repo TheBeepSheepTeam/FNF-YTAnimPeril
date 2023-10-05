@@ -83,16 +83,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['Terminated', 0.2], //From 0% to 19%
+		['Not Available in Your Country', 0.4], //From 20% to 39%
+		['Problem with your Network', 0.5], //From 40% to 49%
+		['Negative Comment', 0.6], //From 50% to 59%
+		['Viewed', 0.69], //From 60% to 68%
+		['Searched', 0.7], //69%
+		['Liked', 0.8], //From 70% to 79%
+		['Positive Comment', 0.9], //From 80% to 89%
+		['Subscribed!', 1], //From 90% to 99%
+		['Monetized!!', 1] //The value on this one isn't used actually, since Monetized is always "1"
 	];
 
 	//event variables
@@ -279,7 +279,6 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		//trace('Playback Rate: ' + playbackRate);
 		Paths.clearStoredMemory();
 
 		startCallback = startCountdown;
@@ -571,7 +570,7 @@ class PlayState extends MusicBeatState
 		uiGroup.add(iconP2);
 
 		msTimeTxt = new FlxText(0, 0, 400, "", 32);
-		msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFFAC75FF, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFFFF7575, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		msTimeTxt.scrollFactor.set();
 		msTimeTxt.alpha = 0;
 		msTimeTxt.visible = true;
@@ -586,7 +585,7 @@ class PlayState extends MusicBeatState
 		updateScore(false);
 		uiGroup.add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBar.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		botplayTxt = new FlxText(400, timeBar.y + 55, FlxG.width - 800, "AUTOPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -1184,7 +1183,7 @@ class PlayState extends MusicBeatState
 		if (cpuControlled){
 			scoreTxt.text = 'Hits: ' + combo + ' | Health: ' + health + ' | Rating: ' + str;
 		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' | Hits: ' + combo + ' | Misses: ' + songMisses + ' | Health: ' + health + ' | Rating: ' + str;
+			scoreTxt.text = 'Likes: ' + songScore + ' | Hits: ' + combo + ' | Strikes: ' + songMisses + ' | Health: ' + health + ' | Rating: ' + str;
 		}
 
 		if(ClientPrefs.data.scoreZoom && !miss && !cpuControlled)
