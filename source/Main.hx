@@ -1,7 +1,6 @@
 package;
 
 import flixel.graphics.FlxGraphic;
-
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxState;
@@ -15,12 +14,10 @@ import lime.app.Application;
 import states.TitleState;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
-
 #if linux
 import lime.graphics.Image;
 #end
-
-//crash handler stuff
+// crash handler stuff
 #if CRASH_HANDLER
 import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
@@ -36,7 +33,6 @@ import sys.io.Process;
 	#define GAMEMODE_AUTO
 ')
 #end
-
 using StringTools;
 
 class Main extends Sprite
@@ -105,19 +101,21 @@ class Main extends Sprite
 			game.width = Math.ceil(stageWidth / game.zoom);
 			game.height = Math.ceil(stageHeight / game.zoom);
 		}
-	
+
 		#if LUA_ALLOWED llua.Lua.set_callbacks_function(cpp.Callable.fromStaticFunction(psychlua.CallbackHandler.call)); #end
 		Controls.instance = new Controls();
 		ClientPrefs.loadDefaultKeys();
 		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
-		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
+		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate,
+			game.skipSplash, game.startFullscreen));
 
 		#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
-		if(fpsVar != null) {
+		if (fpsVar != null)
+		{
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
 		#end
@@ -131,7 +129,7 @@ class Main extends Sprite
 		FlxG.autoPause = false;
 		FlxG.mouse.visible = false;
 		#end
-		
+
 		#if CRASH_HANDLER
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
 		#end
@@ -141,17 +139,20 @@ class Main extends Sprite
 		#end
 
 		// shader coords fix
-		FlxG.signals.gameResized.add(function (w, h) {
-		     if (FlxG.cameras != null) {
-			   for (cam in FlxG.cameras.list) {
-				@:privateAccess
-				if (cam != null && cam._filters != null)
-					resetSpriteCache(cam.flashSprite);
-			   }
-		     }
+		FlxG.signals.gameResized.add(function(w, h)
+		{
+			if (FlxG.cameras != null)
+			{
+				for (cam in FlxG.cameras.list)
+				{
+					@:privateAccess
+					if (cam != null && cam._filters != null)
+						resetSpriteCache(cam.flashSprite);
+				}
+			}
 
-		     if (FlxG.game != null)
-			 resetSpriteCache(FlxG.game);
+			if (FlxG.game != null)
+				resetSpriteCache(FlxG.game);
 		});
 	}
 
@@ -197,12 +198,46 @@ class Main extends Sprite
 		fpsVar.textColor = color;
 	}
 
-	static function resetSpriteCache(sprite:Sprite):Void {
+	static function resetSpriteCache(sprite:Sprite):Void
+	{
 		@:privateAccess {
-		        sprite.__cacheBitmap = null;
+			sprite.__cacheBitmap = null;
 			sprite.__cacheBitmapData = null;
 		}
 	}
+
+	static final quotes:Array<String> = [
+		"Blueballed. - gedehari",
+		"tony crashed my power - CharlesCatYT",
+		"We have come for your errors. GET THE FUCK OUT OF MY CODE - CharlesCatYT",
+		"bababoey - Amanddica",
+		"i hope you go mooseing and get fucked by a campfire - cyborg henry stickmin",
+		"This video is not available on YouTube. - YouTube",
+		"No search results... - YouTube",
+		"YouTube has unexpectedly stopped working! - YouTube",
+		"Demonetized! - YouTube",
+		"Goodbye cruel world - ShadowMario",
+		"old was better - TheAnimateMan",
+		"what the actual fuck - cyborg henry stickmin",
+		"Copyright Strike! - YouTube",
+		"L - Darkness Light",
+		"fuck why is it down - SLB7",
+		"I WARNED YOU ABOUT THE STAIRS BRO! - Hella Jeff"
+		"This video is private. - YouTube",
+		"Itttts... AumSum Time! - AumSum",
+		"grits is funni - Grits",
+		"DMCA Takedown! - YouTube",
+		"fix your grammer - SLB7",
+		"j- NOOO - Vencerist",
+		"I did but error oof - Vencerist",
+		"Oh, you are so unbelievable! - AumSum Narrator",
+		"Ah bueno adios master - ShadowMario",
+		"Skibidy bah mmm dada *explodes* - ShadowMario",
+		"What have you done, you killed it! - BeastlyGhost",
+		"Have you checked if the variable exists? - BeastlyGhost",
+		"Have you even read the wiki before trying that? - BeastlyGhost",
+		"Huh, did I forget something? - Yoshubs (?)"
+	];
 
 	// Code was entirely made by sqirra-rng for their fnf engine named "Izzy Engine", big props to them!!!
 	// very cool person for real they don't get enough credit for their work
@@ -230,7 +265,7 @@ class Main extends Sprite
 			}
 		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/ShadowMario/FNF-PsychEngine\n\n> Crash Handler written by: sqirra-rng";
+		errMsg += "\nUncaught Error: " + e.error + "\n" + quotes[Std.random(quotes.length)] + "\n\n> Crash Handler written by: sqirra-rng";
 
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");

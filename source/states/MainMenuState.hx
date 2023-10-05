@@ -17,6 +17,26 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '0.7.1h'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
+	public static var textArray:Array<String> = [
+		"500+  Giftcards! (-CharlesCatYT)",
+		"bro became starfire from teen titans go (-Monomouse)",
+		"Hi (-ScriptedMar)",
+		"YOUR ARGUMENT, IS NOW INVALID! (-Monomouse)",
+		"south park refernc!!!11 (-Maicon)",
+		"bro recreated vr songs smh (-Cearense Hueboi)",
+		"He's never gonna get it. (-Mars from Unusual Planets)",
+		"aumfriend (-Digital Hourglass)",
+		"when did we start playing freeze tag (-Vencerist)",
+		"Lowkey smooth (-TheAnimateMan)",
+		"JHJJTLKGFD WHY IS MILKY SO LOUD IN THE EXPORT (-cyborg henry)",
+		"chromatic scale- oh wait this is the sample huh (-Vencerist)",
+		"I like starting a fire (-Vencerist)",
+		"dgffghdsfgh (-SauceyRed)",
+		#if html5
+		"You're on web. Why the FUCK are you on web? You can't get even decent easter eggs, bitch."
+		#end
+	];
+
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	
@@ -26,7 +46,7 @@ class MainMenuState extends MusicBeatState
 		#if MODS_ALLOWED 'mods', #end
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		#if !switch 'donate', #end
+		//'donate'
 		'options'
 	];
 
@@ -71,16 +91,11 @@ class MainMenuState extends MusicBeatState
 		magenta.visible = false;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-		
-		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
 		var scale:Float = 1;
-		/*if(optionShit.length > 6) {
-			scale = 6 / optionShit.length;
-		}*/
 
 		for (i in 0...optionShit.length)
 		{
@@ -99,12 +114,15 @@ class MainMenuState extends MusicBeatState
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
 			menuItem.scrollFactor.set(0, scr);
-			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
 		}
 
 		FlxG.camera.follow(camFollow, null, 0);
 
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "FNF: YT Animation Peril", 12);
+		versionShit.scrollFactor.set();
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(versionShit);
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -113,8 +131,6 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-
-		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
 
