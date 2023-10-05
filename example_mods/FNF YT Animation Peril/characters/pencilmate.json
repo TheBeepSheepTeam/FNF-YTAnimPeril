@@ -1,0 +1,83 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Pencimate Idle",
+			"image": "characters/Pencilmate",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				66,
+				10
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Pencimate left",
+			"image": "characters/Pencilmate",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				56,
+				-21
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Pencimate down",
+			"image": "characters/Pencilmate",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				25,
+				101
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Pencimate up",
+			"image": "characters/Pencilmate",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				9
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Pencimate right",
+			"image": "characters/Pencilmate",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Pencilmate",
+	"position": [
+		0,
+		230
+	],
+	"healthicon": "pencilmate",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		0,
+		255
+	],
+	"camera_position": [
+		-40,
+		-60
+	],
+	"sing_duration": 6.1,
+	"scale": 1.1
+}

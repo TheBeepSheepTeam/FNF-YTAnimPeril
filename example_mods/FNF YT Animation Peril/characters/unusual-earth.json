@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "idle",
+			"loop": true,
+			"name": "unusual earth idle"
+		},
+		{
+			"offsets": [
+				66,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "unusual earth left"
+		},
+		{
+			"offsets": [
+				-49,
+				-19
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "unusual earth down"
+		},
+		{
+			"offsets": [
+				32,
+				13
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singUP",
+			"loop": false,
+			"name": "unusual earth up"
+		},
+		{
+			"offsets": [
+				9,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "unusual earth right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Unusual_Earth",
+	"position": [
+		0,
+		240
+	],
+	"healthicon": "unusual-earth",
+	"flip_x": false,
+	"healthbar_colors": [
+		64,
+		64,
+		255
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1.1
+}

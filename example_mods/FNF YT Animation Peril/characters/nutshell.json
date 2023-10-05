@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-23,
+				3
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "nutshell idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				31,
+				14
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "nutshell left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				55,
+				-48
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "nutshell down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				73,
+				76
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "nutshell up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				33,
+				8
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "nutshell right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/nutshell_sprites",
+	"position": [
+		-170,
+		-130
+	],
+	"healthicon": "nutshell",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		170,
+		270
+	],
+	"sing_duration": 6.1,
+	"scale": 0.5
+}

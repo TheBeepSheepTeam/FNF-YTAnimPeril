@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "idle",
+			"loop": true,
+			"name": "unusual moon idle"
+		},
+		{
+			"offsets": [
+				63,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "unusual moon left"
+		},
+		{
+			"offsets": [
+				-7,
+				-15
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "unusual moon down"
+		},
+		{
+			"offsets": [
+				-5,
+				15
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singUP",
+			"loop": false,
+			"name": "unusual moon up"
+		},
+		{
+			"offsets": [
+				48,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "unusual moon right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Unusual_Moon",
+	"position": [
+		0,
+		240
+	],
+	"healthicon": "unusual-moon",
+	"flip_x": false,
+	"healthbar_colors": [
+		218,
+		218,
+		218
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1.1
+}

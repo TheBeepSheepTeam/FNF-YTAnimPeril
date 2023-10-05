@@ -1,0 +1,82 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				62,
+				2
+			],
+			"loop": false,
+			"fps": 16,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "tony left",
+			"image": "characters/super_tony"
+		},
+		{
+			"offsets": [
+				-4,
+				-10
+			],
+			"loop": false,
+			"fps": 16,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "tony down",
+			"image": "characters/super_tony"
+		},
+		{
+			"offsets": [
+				-2,
+				1
+			],
+			"loop": false,
+			"fps": 16,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "tony right",
+			"image": "characters/super_tony"
+		},
+		{
+			"offsets": [
+				6,
+				14
+			],
+			"loop": false,
+			"fps": 16,
+			"anim": "singUP",
+			"indices": [],
+			"name": "tony up",
+			"image": "characters/super_tony"
+		},
+		{
+			"offsets": [
+				0,
+				-1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "tony idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/super_tony",
+	"position": [
+		70,
+		210
+	],
+	"healthicon": "tony",
+	"flip_x": false,
+	"healthbar_colors": [
+		102,
+		0,
+		102
+	],
+	"camera_position": [
+		-30,
+		-30
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

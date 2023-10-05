@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="cooly.png">
+<SubTexture name="cooly idle dance0000" x="990" y="993" width="225" height="474" frameX="-12" frameY="-17" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0001" x="493" y="993" width="226" height="479" frameX="-8" frameY="-12" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0002" x="0" y="993" width="230" height="485" frameX="-5" frameY="-6" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0003" x="868" y="0" width="232" height="491" frameX="-2" frameY="0" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0004" x="868" y="0" width="232" height="491" frameX="-2" frameY="0" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0005" x="868" y="0" width="232" height="491" frameX="-2" frameY="0" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0006" x="868" y="0" width="232" height="491" frameX="-2" frameY="0" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0007" x="868" y="0" width="232" height="491" frameX="-2" frameY="0" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0008" x="868" y="0" width="232" height="491" frameX="-2" frameY="0" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly idle dance0009" x="868" y="0" width="232" height="491" frameX="-2" frameY="0" frameWidth="240" frameHeight="491" />
+<SubTexture name="cooly right0000" x="660" y="502" width="386" height="490" frameX="-4" frameY="0" frameWidth="395" frameHeight="490" />
+<SubTexture name="cooly right0001" x="1100" y="0" width="383" height="490" frameX="-1" frameY="0" frameWidth="395" frameHeight="490" />
+<SubTexture name="cooly right0002" x="1100" y="490" width="375" height="490" frameX="-3" frameY="0" frameWidth="395" frameHeight="490" />
+<SubTexture name="cooly left0000" x="0" y="502" width="224" height="491" frameX="0" frameY="0" frameWidth="224" frameHeight="491" />
+<SubTexture name="cooly left0001" x="224" y="502" width="220" height="491" frameX="-4" frameY="0" frameWidth="224" frameHeight="491" />
+<SubTexture name="cooly left0002" x="444" y="502" width="216" height="491" frameX="-8" frameY="0" frameWidth="224" frameHeight="491" />
+<SubTexture name="cooly up0000" x="0" y="0" width="282" height="502" frameX="-6" frameY="-1" frameWidth="310" frameHeight="503" />
+<SubTexture name="cooly up0001" x="282" y="0" width="288" height="500" frameX="-8" frameY="-3" frameWidth="310" frameHeight="503" />
+<SubTexture name="cooly up0002" x="570" y="0" width="298" height="498" frameX="-10" frameY="-5" frameWidth="310" frameHeight="503" />
+<SubTexture name="cooly down0000" x="1483" y="0" width="275" height="469" frameX="-13" frameY="-11" frameWidth="290" frameHeight="480" />
+<SubTexture name="cooly down0001" x="719" y="993" width="271" height="476" frameX="-5" frameY="-4" frameWidth="290" frameHeight="480" />
+<SubTexture name="cooly down0002" x="230" y="993" width="263" height="480" frameX="0" frameY="0" frameWidth="290" frameHeight="480" />
+</TextureAtlas>

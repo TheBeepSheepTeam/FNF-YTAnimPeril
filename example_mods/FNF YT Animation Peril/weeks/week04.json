@@ -1,0 +1,41 @@
+{
+	"storyName": "Acorn becomes Eminem's Father",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "nutshellanimations",
+	"weekBefore": "week03",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Hilarious",
+			"nutshell",
+			[
+				160,
+				160,
+				160
+			]
+		],
+		[
+			"Idiot",
+			"acorn",
+			[
+				160,
+				160,
+				160
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Nutshell Week"
+}

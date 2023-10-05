@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "idle",
+			"loop": true,
+			"name": "unusual mars idle"
+		},
+		{
+			"offsets": [
+				26,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "unusual mars left"
+		},
+		{
+			"offsets": [
+				48,
+				0
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "unusual mars right"
+		},
+		{
+			"offsets": [
+				4,
+				11
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singUP",
+			"loop": false,
+			"name": "unusual mars up"
+		},
+		{
+			"offsets": [
+				11,
+				-19
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "unusual mars down"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Unusual_Mars",
+	"position": [
+		0,
+		240
+	],
+	"healthicon": "unusual-mars",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		68,
+		0
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1.1
+}

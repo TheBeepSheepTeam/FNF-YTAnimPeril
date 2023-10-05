@@ -1,0 +1,83 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-5,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "bf chivi idle",
+			"image": "characters/bf_chivi_assets"
+		},
+		{
+			"offsets": [
+				13,
+				3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "bf chivi left",
+			"image": "characters/bf_chivi_assets"
+		},
+		{
+			"offsets": [
+				-25,
+				-9
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "bf chivi down",
+			"image": "characters/bf_chivi_assets"
+		},
+		{
+			"offsets": [
+				29,
+				23
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "bf chivi up",
+			"image": "characters/bf_chivi_assets"
+		},
+		{
+			"offsets": [
+				-41,
+				3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "bf chivi right",
+			"image": "characters/bf_chivi_assets"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bf_chivi_assets",
+	"position": [
+		0,
+		200
+	],
+	"healthicon": "bf-chivi",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

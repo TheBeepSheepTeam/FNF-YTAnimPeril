@@ -222,7 +222,7 @@ class Main extends Sprite
 		"Copyright Strike! - YouTube",
 		"L - Darkness Light",
 		"fuck why is it down - SLB7",
-		"I WARNED YOU ABOUT THE STAIRS BRO! - Hella Jeff"
+		"I WARNED YOU ABOUT THE STAIRS BRO! - Hella Jeff",
 		"This video is private. - YouTube",
 		"Itttts... AumSum Time! - AumSum",
 		"grits is funni - Grits",

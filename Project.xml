@@ -2,13 +2,14 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Psych Engine" packageName="com.shadowmario.psychengine"
-		package="com.shadowmario.psychengine" main="Main" version="0.2.8" company="ShadowMario" />
+	<app title="Friday Night Funkin': YouTube Animation Peril"
+		packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main"
+		version="0.2.8" company="ShadowMario" />
 
-	<app file="PsychEngine" if="windows" />
-	<app file="PsychLinux" if="linux" />
-	<app file="PsychMac" if="mac" />
-	<app file="PsychEngine32" if="32bit" />
+	<app file="YouTubePeril" if="windows" />
+	<app file="YTPerilLinux" if="linux" />
+	<app file="YTPerilMac" if="mac" />
+	<app file="YouTubePeril32" if="32bit" />
 
 	<!-- NOTE TO SELF: DISABLE THIS IF ISSUES ARE FOUND -->
 	<haxedef name="LINC_LUA_RELATIVE_DYNAMIC_LIB" /> <!-- stable luas PUT AFTER FIRST LINE WITH APP NAME AND ETC -->

@@ -1,0 +1,32 @@
+{
+	"storyName": "Pencilmation In: Getting Freaky on a Friday Night!",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "pencilmation",
+	"weekBefore": "week04",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Contendedly",
+			"pencilmate",
+			[
+				0,
+				0,
+				155
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Pencilmation"
+}

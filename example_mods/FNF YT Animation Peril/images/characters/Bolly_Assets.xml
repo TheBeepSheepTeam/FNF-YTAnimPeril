@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="bolly.png">
+<SubTexture name="bolly idle0000" x="1815" y="0" width="265" height="469" frameX="0" frameY="-10" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0001" x="1153" y="960" width="250" height="473" frameX="-11" frameY="-6" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0002" x="935" y="960" width="218" height="476" frameX="-34" frameY="-3" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0003" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0004" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0005" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0006" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0007" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0008" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0009" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0010" x="520" y="0" width="195" height="479" frameX="-20" frameY="0" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0011" x="919" y="0" width="178" height="478" frameX="-33" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0012" x="0" y="482" width="187" height="478" frameX="-41" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0013" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0014" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0015" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0016" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0017" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0018" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly idle0019" x="715" y="0" width="204" height="478" frameX="-39" frameY="-1" frameWidth="265" frameHeight="479" />
+<SubTexture name="bolly right0000" x="187" y="482" width="402" height="478" frameX="0" frameY="0" frameWidth="402" frameHeight="478" />
+<SubTexture name="bolly right0001" x="589" y="482" width="394" height="478" frameX="-2" frameY="0" frameWidth="402" frameHeight="478" />
+<SubTexture name="bolly right0002" x="1097" y="0" width="381" height="478" frameX="-10" frameY="0" frameWidth="402" frameHeight="478" />
+<SubTexture name="bolly left0000" x="1097" y="478" width="365" height="478" frameX="0" frameY="0" frameWidth="365" frameHeight="478" />
+<SubTexture name="bolly left0001" x="0" y="960" width="340" height="478" frameX="-2" frameY="0" frameWidth="365" frameHeight="478" />
+<SubTexture name="bolly left0002" x="340" y="960" width="335" height="478" frameX="-4" frameY="0" frameWidth="365" frameHeight="478" />
+<SubTexture name="bolly up0000" x="0" y="0" width="261" height="482" frameX="0" frameY="0" frameWidth="270" frameHeight="482" />
+<SubTexture name="bolly up0001" x="261" y="0" width="259" height="480" frameX="-1" frameY="-2" frameWidth="270" frameHeight="482" />
+<SubTexture name="bolly up0002" x="675" y="960" width="260" height="478" frameX="-5" frameY="-4" frameWidth="270" frameHeight="482" />
+<SubTexture name="bolly down0000" x="1478" y="0" width="337" height="472" frameX="0" frameY="0" frameWidth="337" frameHeight="472" />
+<SubTexture name="bolly down0001" x="1478" y="944" width="311" height="470" frameX="-7" frameY="-2" frameWidth="337" frameHeight="472" />
+<SubTexture name="bolly down0002" x="1478" y="472" width="283" height="472" frameX="-16" frameY="0" frameWidth="337" frameHeight="472" />
+</TextureAtlas>

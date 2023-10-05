@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Boggo.png">
+<SubTexture name="Boggo Idle0000" x="3144" y="1163" width="486" height="1160" frameX="-507" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0001" x="3144" y="1163" width="486" height="1160" frameX="-507" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0002" x="3144" y="1163" width="486" height="1160" frameX="-507" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0003" x="3144" y="1163" width="486" height="1160" frameX="-507" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0004" x="2600" y="1171" width="493" height="1163" frameX="-501" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0005" x="2600" y="1171" width="493" height="1163" frameX="-501" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0006" x="2600" y="1171" width="493" height="1163" frameX="-501" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0007" x="2600" y="1171" width="493" height="1163" frameX="-501" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0008" x="3144" y="1163" width="486" height="1160" frameX="-507" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0009" x="3144" y="1163" width="486" height="1160" frameX="-507" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0010" x="3144" y="1163" width="486" height="1160" frameX="-507" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0011" x="3144" y="1163" width="486" height="1160" frameX="-507" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0012" x="2600" y="1171" width="493" height="1163" frameX="-501" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0013" x="2600" y="1171" width="493" height="1163" frameX="-501" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0014" x="2600" y="1171" width="493" height="1163" frameX="-501" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Idle0015" x="3144" y="0" width="493" height="1163" frameX="-501" frameY="-122" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Right0000" x="1965" y="2442" width="493" height="1143" frameX="-535" frameY="-136" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Right0001" x="1473" y="2442" width="492" height="1145" frameX="-527" frameY="-134" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Right0002" x="0" y="2442" width="491" height="1146" frameX="-528" frameY="-133" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Right0003" x="491" y="2442" width="491" height="1146" frameX="-526" frameY="-133" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Right0004" x="982" y="2442" width="491" height="1146" frameX="-525" frameY="-133" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Left0000" x="0" y="1269" width="542" height="1173" frameX="-506" frameY="-115" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Left0001" x="2600" y="0" width="544" height="1171" frameX="-516" frameY="-117" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Left0002" x="542" y="1269" width="548" height="1172" frameX="-521" frameY="-116" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Left0003" x="1090" y="1269" width="549" height="1172" frameX="-523" frameY="-116" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Left0004" x="1639" y="1269" width="549" height="1172" frameX="-524" frameY="-116" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Up0000" x="0" y="0" width="520" height="1269" frameX="-476" frameY="-14" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Up0001" x="520" y="0" width="520" height="1259" frameX="-476" frameY="-21" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Up0002" x="1040" y="0" width="520" height="1252" frameX="-474" frameY="-27" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Up0003" x="1560" y="0" width="520" height="1249" frameX="-474" frameY="-30" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Up0004" x="2080" y="0" width="520" height="1248" frameX="-474" frameY="-31" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Down0000" x="0" y="3588" width="573" height="1085" frameX="-488" frameY="-211" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Down0001" x="4165" y="0" width="550" height="1096" frameX="-494" frameY="-199" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Down0002" x="3637" y="0" width="528" height="1103" frameX="-504" frameY="-191" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Down0003" x="2968" y="2442" width="516" height="1105" frameX="-508" frameY="-188" frameWidth="1340" frameHeight="1340" />
+<SubTexture name="Boggo Down0004" x="2458" y="2442" width="510" height="1107" frameX="-510" frameY="-186" frameWidth="1340" frameHeight="1340" />
+</TextureAtlas>
