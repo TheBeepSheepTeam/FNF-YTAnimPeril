@@ -113,7 +113,7 @@ class PlayState extends MusicBeatState
 	public var modchartTimers:Map<String, FlxTimer> = new Map<String, FlxTimer>();
 	public var modchartSounds:Map<String, FlxSound> = new Map<String, FlxSound>();
 	public var modchartTexts:Map<String, FlxText> = new Map<String, FlxText>();
-	public var modchartSaves:Map<String, FlxSave> = new Map<String, FlxSave>();
+	public static var modchartSaves:Map<String, FlxSave> = new Map<String, FlxSave>();
 	#end
 
 	public var BF_X:Float = 770;
@@ -136,7 +136,7 @@ class PlayState extends MusicBeatState
 	public static var curStage:String = '';
 	public static var stageUI:String = "normal";
 	public static var isPixelStage(get, never):Bool;
-
+	
 	@:noCompletion
 	static function get_isPixelStage():Bool
 		return stageUI == "pixel";
@@ -1011,7 +1011,7 @@ class PlayState extends MusicBeatState
 			var swagCounter:Int = 0;
 
 			if (ClientPrefs.data.showMsText) {
-				if (ClientPrefs.downScroll) {
+				if (ClientPrefs.data.downScroll) {
 					msTimeTxt.x = playerStrums.members[1].x-100;
 					msTimeTxt.y = playerStrums.members[1].y+100;
 				} else {
@@ -1019,7 +1019,7 @@ class PlayState extends MusicBeatState
 					msTimeTxt.y = playerStrums.members[1].y-50;
 				}
 
-				if (ClientPrefs.middleScroll) {
+				if (ClientPrefs.data.middleScroll) {
 					msTimeTxt.x = playerStrums.members[0].x-250;
 					msTimeTxt.y = playerStrums.members[1].y+30;
 				}
@@ -1913,7 +1913,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.music.pause();
 			vocals.pause();
 		}
-		openSubState(new GameplayChangersSubstate());
+		openSubState(new substates.GameplayChangersSubstate());
 	}
 
 	function openChartEditor()
@@ -2883,7 +2883,7 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
-		health -= ClientPrefs.data.healthDrainValue;
+		health -= ClientPrefs.data.healthDrain;
 
 		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
 			camZooming = true;
