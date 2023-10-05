@@ -138,15 +138,15 @@ class ExtraFunctions
 		funk.set("flushSaveData", function(name:String) {
 			if(PlayState.modchartSaves.exists(name))
 			{
-				PlayState.instance.modchartSaves.get(name).flush();
+				PlayState.modchartSaves.get(name).flush();
 				return;
 			}
 			FunkinLua.luaTrace('flushSaveData: Save file not initialized: ' + name, false, false, FlxColor.RED);
 		});
 		funk.set("getDataFromSave", function(name:String, field:String, ?defaultValue:Dynamic = null) {
-			if(PlayState.instance.modchartSaves.exists(name))
+			if(PlayState.modchartSaves.exists(name))
 			{
-				var saveData = PlayState.instance.modchartSaves.get(name).data;
+				var saveData = PlayState.modchartSaves.get(name).data;
 				if(Reflect.hasField(saveData, field))
 					return Reflect.field(saveData, field);
 				else
@@ -156,9 +156,9 @@ class ExtraFunctions
 			return defaultValue;
 		});
 		funk.set("setDataFromSave", function(name:String, field:String, value:Dynamic) {
-			if(PlayState.instance.modchartSaves.exists(name))
+			if(PlayState.modchartSaves.exists(name))
 			{
-				Reflect.setField(PlayState.instance.modchartSaves.get(name).data, field, value);
+				Reflect.setField(PlayState.modchartSaves.get(name).data, field, value);
 				return;
 			}
 			FunkinLua.luaTrace('setDataFromSave: Save file not initialized: ' + name, false, false, FlxColor.RED);
