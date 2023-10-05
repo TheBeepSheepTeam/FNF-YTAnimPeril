@@ -198,7 +198,7 @@ class AchievementsMenuState extends MusicBeatState
 		}
 		if(FlxG.mouse.wheel != 0) {
 			FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
-			changeSelection(-FlxG.mouse.wheel);
+			_changeSelection(-FlxG.mouse.wheel);
 		}
 
 		FlxG.camera.followLerp = FlxMath.bound(elapsed * 9 / (FlxG.updateFramerate / 60), 0, 1);

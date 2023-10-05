@@ -33,6 +33,12 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		addOption(option);
 		antialiasingOption = optionsArray.length-1;
 
+		var option:Option = new Option('Use System Cursor', // Name
+		"If checked, uses the system mouse cursor instead of the default Flixel one.", // Description
+		'systemCursor', 'bool');
+	    addOption(option);
+	    option.onChange = onChangeSystemCursor;
+
 		var option:Option = new Option('Shaders', //Name
 			"If unchecked, disables shaders.\nIt's used for some visual effects, and also CPU intensive for weaker PCs.", //Description
 			'shaders',
@@ -91,5 +97,9 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 	{
 		super.changeSelection(change);
 		boyfriend.visible = (antialiasingOption == curSelected);
+	}
+
+	public static function onChangeSystemCursor(){
+		FlxG.mouse.useSystemCursor = ClientPrefs.data.systemCursor;
 	}
 }

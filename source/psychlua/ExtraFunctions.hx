@@ -125,18 +125,18 @@ class ExtraFunctions
 
 		// Save data management
 		funk.set("initSaveData", function(name:String, ?folder:String = 'psychenginemods') {
-			if(!PlayState.instance.modchartSaves.exists(name))
+			if(!PlayState.modchartSaves.exists(name))
 			{
 				var save:FlxSave = new FlxSave();
 				// folder goes unused for flixel 5 users. @BeastlyGhost
 				save.bind(name, CoolUtil.getSavePath() + '/' + folder);
-				PlayState.instance.modchartSaves.set(name, save);
+				PlayState.modchartSaves.set(name, save);
 				return;
 			}
 			FunkinLua.luaTrace('initSaveData: Save file already initialized: ' + name);
 		});
 		funk.set("flushSaveData", function(name:String) {
-			if(PlayState.instance.modchartSaves.exists(name))
+			if(PlayState.modchartSaves.exists(name))
 			{
 				PlayState.instance.modchartSaves.get(name).flush();
 				return;
@@ -243,6 +243,78 @@ class ExtraFunctions
 			}
 			#end
 			return list;
+		});
+		
+		// Json stuff, by CaptainBaldi
+		funk.set("parseJson", function(jsonStr:String, varName:String) {
+			var json = Paths.modFolders('data/' + jsonStr + '.json');
+			var foundJson:Bool;
+
+			#if sys
+				if (FileSystem.exists(json)) {
+					foundJson = true;
+				} else {
+					funk.luaTrace('parseJson: Invalid json file path!', false, false, FlxColor.RED);
+					foundJson = false;
+					return;	
+				}
+			#else
+				if (Assets.exists(json)) {
+					foundJson = true;
+				} else {
+					funk.luaTrace('parseJson: Invalid json file path!', false, false, FlxColor.RED);
+					foundJson = false;
+					return;	
+				}
+			#end
+
+			if (foundJson) {
+				var parsedJson = haxe.Json.parse(File.getContent(json));				
+				PlayState.instance.variables.set(varName, parsedJson);
+			}
+		});
+
+		// Regex
+		funk.set("regexMatch", function(str:String, toMatch:String, flag:String = "i")
+		{
+			return new EReg(str, flag).match(toMatch);
+		});
+		funk.set("regexSubMatch", function(str:String, toMatch:String, pos:Int, len:Int = -1, flag:String = "i")
+		{
+			return new EReg(str, flag).matchSub(toMatch, pos, len);
+		});
+		funk.set("regexFindMatchAt", function(str:String, toMatch:String, n:Int, flag:String = "i")
+		{
+			var theData = new EReg(str, flag);
+			theData.match(toMatch);
+			return theData.matched(n);
+		});
+		funk.set("regexFindFirstMatch", function(str:String, toMatch:String, flag:String = "i")
+		{
+			var theData = new EReg(str, flag);
+			theData.match(toMatch);
+			return theData.matchedLeft();
+		});
+		funk.set("regexFindLastMatch", function(str:String, toMatch:String, flag:String = "i")
+		{
+			var theData = new EReg(str, flag);
+			theData.match(toMatch);
+			return theData.matchedRight();
+		});
+		funk.set("regexMatchPosition", function(str:String, toMatch:String, flag:String = "i")
+		{
+			var data = new EReg(str, flag);
+			data.match(toMatch);
+			var theData = data.matchedPos();
+			return [theData.pos, theData.len];
+		});
+		funk.set("regexReplace", function(str:String, toReplace:String, replacement:String, flag:String = "i")
+		{
+			return new EReg(str, flag).replace(toReplace, replacement);
+		});
+		funk.set("regexSplit", function(str:String, toSplit:String, flag:String = "i")
+		{
+			return new EReg(str, flag).split(toSplit);
 		});
 
 		// String tools

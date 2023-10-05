@@ -95,6 +95,10 @@ class TitleState extends MusicBeatState
 
 		ClientPrefs.loadPrefs();
 
+		if (FlxG.save.data != null && ClientPrefs.data.systemCursor){
+			FlxG.mouse.useSystemCursor = ClientPrefs.data.systemCursor;
+		}
+
 		#if CHECK_FOR_UPDATES
 		if(ClientPrefs.data.checkForUpdates && !closedState) {
 			trace('checking for update');
@@ -146,10 +150,7 @@ class TitleState extends MusicBeatState
 		if(!initialized)
 		{
 			if(FlxG.save.data != null && FlxG.save.data.fullscreen)
-			{
 				FlxG.fullscreen = FlxG.save.data.fullscreen;
-				//trace('LOADED FULLSCREEN SETTING!!');
-			}
 			persistentUpdate = true;
 			persistentDraw = true;
 		}
@@ -160,11 +161,6 @@ class TitleState extends MusicBeatState
 		}
 
 		FlxG.mouse.visible = false;
-		#if FREEPLAY
-		MusicBeatState.switchState(new FreeplayState());
-		#elseif CHARTING
-		MusicBeatState.switchState(new ChartingState());
-		#else
 		if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
 			FlxTransitionableState.skipNextTransIn = true;
 			FlxTransitionableState.skipNextTransOut = true;
@@ -180,7 +176,6 @@ class TitleState extends MusicBeatState
 				});
 			}
 		}
-		#end
 	}
 
 	var logoBl:FlxSprite;
@@ -339,7 +334,7 @@ class TitleState extends MusicBeatState
 		#if MODS_ALLOWED
 		var firstArray:Array<String> = Mods.mergeAllTextsNamed('data/introText.txt', Paths.getPreloadPath());
 		#else
-		var fullText:String = Assets.getText(Paths.txt('introText'));
+		var fullText:String = Paths.getTextFromFile('data/introText.txt');
 		var firstArray:Array<String> = fullText.split('\n');
 		#end
 		var swagGoodArray:Array<Array<String>> = [];

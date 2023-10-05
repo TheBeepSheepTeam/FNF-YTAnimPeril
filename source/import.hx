@@ -1,3 +1,5 @@
+package;
+
 #if !macro
 //Discord API
 #if desktop

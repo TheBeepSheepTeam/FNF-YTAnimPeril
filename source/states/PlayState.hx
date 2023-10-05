@@ -160,6 +160,8 @@ class PlayState extends MusicBeatState
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<EventNote> = [];
 
+	public var lane:FlxSprite;
+	
 	public var camFollow:FlxObject;
 	private static var prevCamFollow:FlxObject;
 
@@ -174,7 +176,14 @@ class PlayState extends MusicBeatState
 	private var curSong:String = "";
 
 	public var gfSpeed:Int = 1;
-	public var health:Float = 1;
+	public var health(default, set):Float = 1;
+
+	inline function set_health(value:Float)
+	{
+		health = value > 2 ? 2 : value;
+		doDeathCheck(value < health);
+		return health;
+	}
 	public var combo:Int = 0;
 
 	public var healthBar:Bar;
@@ -214,6 +223,9 @@ class PlayState extends MusicBeatState
 	public var scoreTxt:FlxText;
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
+
+	var msTimeTxt:FlxText;
+	var msTimeTxtTween:FlxTween;
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
@@ -466,8 +478,18 @@ class PlayState extends MusicBeatState
 
 		// INITIALIZE UI GROUPS
 		uiGroup = new FlxSpriteGroup();
-		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		comboGroup = new FlxSpriteGroup();
+		strumLineNotes = new FlxTypedGroup<StrumNote>();
+		if (ClientPrefs.data.laneUnderlay > 0){
+				for (i in 0...2)
+				{
+					lane = new FlxSprite(42 + 50 + (FlxG.width / 2 * i) - 10, 0).makeGraphic(Std.int(42 + Note.swagWidth * 3 + 90), FlxG.height);
+					lane.color = FlxColor.BLACK;
+					lane.alpha = ClientPrefs.data.laneUnderlay;
+					uiGroup.add(lane);
+					lane.cameras = [camHUD];
+				}
+		}
 
 		Conductor.songPosition = -5000 / Conductor.songPosition;
 		var showTime:Bool = (ClientPrefs.data.timeBarType != 'Disabled');
@@ -546,6 +568,14 @@ class PlayState extends MusicBeatState
 		iconP2.visible = !ClientPrefs.data.hideHud;
 		iconP2.alpha = ClientPrefs.data.healthBarAlpha;
 		uiGroup.add(iconP2);
+
+		msTimeTxt = new FlxText(0, 0, 400, "", 32);
+		msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFFAC75FF, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		msTimeTxt.scrollFactor.set();
+		msTimeTxt.alpha = 0;
+		msTimeTxt.visible = true;
+		msTimeTxt.borderSize = 2;
+		uiGroup.add(msTimeTxt);
 
 		scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 20);
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -707,8 +737,13 @@ class PlayState extends MusicBeatState
 	}
 
 	public function reloadHealthBarColors() {
-		healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
-			FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
+		var dadCol = dad.healthColorArray;
+		var bfCol = boyfriend.healthColorArray;
+		if (ClientPrefs.data.coloredHealthBar)
+			healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
+		FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
+		else
+			healthBar.setColors(0xFFFF0000, 0xFF66FF33);
 	}
 
 	public function addCharacterToList(newCharacter:String, type:Int) {
@@ -974,6 +1009,22 @@ class PlayState extends MusicBeatState
 			callOnScripts('onCountdownStarted', null);
 
 			var swagCounter:Int = 0;
+
+			if (ClientPrefs.data.showMsText) {
+				if (ClientPrefs.downScroll) {
+					msTimeTxt.x = playerStrums.members[1].x-100;
+					msTimeTxt.y = playerStrums.members[1].y+100;
+				} else {
+					msTimeTxt.x = playerStrums.members[1].x-100;
+					msTimeTxt.y = playerStrums.members[1].y-50;
+				}
+
+				if (ClientPrefs.middleScroll) {
+					msTimeTxt.x = playerStrums.members[0].x-250;
+					msTimeTxt.y = playerStrums.members[1].y+30;
+				}
+			}
+
 			if (startOnTime > 0) {
 				clearNotesBefore(startOnTime);
 				setSongTime(startOnTime - 350);
@@ -1129,9 +1180,11 @@ class PlayState extends MusicBeatState
 			str += ' ($percent%) - $ratingFC';
 		}
 
-		scoreTxt.text = 'Score: ' + songScore
-		+ ' | Misses: ' + songMisses
-		+ ' | Rating: ' + str;
+		if (cpuControlled){
+			scoreTxt.text = 'Hits: ' + combo + ' | Health: ' + health + ' | Rating: ' + str;
+		} else {
+			scoreTxt.text = 'Score: ' + songScore + ' | Hits: ' + combo + ' | Misses: ' + songMisses + ' | Health: ' + health + ' | Rating: ' + str;
+		}
 
 		if(ClientPrefs.data.scoreZoom && !miss && !cpuControlled)
 		{
@@ -1649,8 +1702,23 @@ class PlayState extends MusicBeatState
 		}
 		iconP1.x = healthBar.barCenter + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
 		iconP2.x = healthBar.barCenter - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
-		iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0;
-		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0;
+
+		switch (iconP1.animation.numFrames) {
+			case 1:
+				iconP1.animation.curAnim.curFrame = 0;
+			case 3:
+				iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : (healthBar.percent > 80) ? 2 : 0;
+			default:
+				iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0;
+		}
+		switch (iconP2.animation.numFrames) {
+			case 1:
+				iconP2.animation.curAnim.curFrame = 0;
+			case 3:
+				iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : (healthBar.percent < 20) ? 2 : 0;
+			default:
+				iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0;
+		}
 
 		if (controls.justPressed('debug_2') && !endingSong && !inCutscene)
 			openCharacterEditor();
@@ -1693,7 +1761,7 @@ class PlayState extends MusicBeatState
 		// RESET = Quick Game Over Screen
 		if (!ClientPrefs.data.noReset && controls.RESET && canReset && !inCutscene && startedCountdown && !endingSong)
 		{
-			health = 0;
+			doDeathCheck(true);
 			trace("RESET = True");
 		}
 		doDeathCheck();
@@ -1833,6 +1901,19 @@ class PlayState extends MusicBeatState
 		#if desktop
 		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 		#end
+	}
+
+	public function openChangersMenu()
+	{
+		persistentUpdate = false;
+		persistentDraw = true;
+		paused = true;
+	
+		if (FlxG.sound.music != null){
+			FlxG.sound.music.pause();
+			vocals.pause();
+		}
+		openSubState(new GameplayChangersSubstate());
 	}
 
 	function openChartEditor()
@@ -2235,7 +2316,7 @@ class PlayState extends MusicBeatState
 	{
 		//Should kill you if you tried to cheat
 		if(!startingSong) {
-			notes.forEach(function(daNote:Note) {
+			notes.forEach((daNote:Note) -> {
 				if(daNote.strumTime < songLength - Conductor.safeZoneOffset) {
 					health -= 0.05 * healthLoss;
 				}
@@ -2270,11 +2351,9 @@ class PlayState extends MusicBeatState
 		var ret:Dynamic = callOnScripts('onEndSong', null, true);
 		if(ret != FunkinLua.Function_Stop && !transitioning)
 		{
-			#if !switch
-			var percent:Float = ratingPercent;
+			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
 			if(Math.isNaN(percent)) percent = 0;
 			Highscore.saveScore(SONG.song, songScore, storyDifficulty, percent);
-			#end
 			playbackRate = 1;
 
 			if (chartingMode)
@@ -2394,6 +2473,18 @@ class PlayState extends MusicBeatState
 	private function popUpScore(note:Note = null):Void
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.data.ratingOffset);
+
+		if (ClientPrefs.data.showMsText) {
+			msTimeTxt.alpha = 1;
+			msTimeTxt.text =Std.string(Math.round(noteDiff)) + "ms";
+			if (msTimeTxtTween != null){
+				msTimeTxtTween.cancel(); msTimeTxtTween.destroy(); // top 10 awesome code
+			}
+			msTimeTxtTween = FlxTween.tween(msTimeTxt, {alpha: 0}, 0.25, {
+				onComplete: function(tw:FlxTween) {msTimeTxtTween = null;}, startDelay: 0.7
+			});
+		}
+
 		vocals.volume = 1;
 
 		if (!ClientPrefs.data.comboStacking && comboGroup.members.length > 0) {
@@ -2792,6 +2883,8 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
+		health -= ClientPrefs.data.healthDrainValue;
+
 		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
 			camZooming = true;
 
@@ -3289,7 +3382,7 @@ class PlayState extends MusicBeatState
 
 		if(spr != null) {
 			spr.playAnim('confirm', true);
-			spr.resetAnim = time;
+			spr.resetAnim = time / playbackRate;
 		}
 	}
 

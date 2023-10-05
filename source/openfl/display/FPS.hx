@@ -45,7 +45,7 @@ class FPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat("_sans", 14, color);
+		defaultTextFormat = new TextFormat(Paths.font("vcr.ttf"), 14, color);
 		autoSize = LEFT;
 		multiline = true;
 		text = "FPS: ";
@@ -86,9 +86,11 @@ class FPS extends TextField
 			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
-			text += "\nMemory: " + memoryMegas + " MB";
+			text += "\nMEM: " + memoryMegas + " MB";
 			#end
 
+			text += "\nFNF: Psych Engine v0.7.1h Custom Build";
+			
 			textColor = 0xFFFFFFFF;
 			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.data.framerate / 2)
 			{

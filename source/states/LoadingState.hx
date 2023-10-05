@@ -18,10 +18,6 @@ class LoadingState extends MusicBeatState
 {
 	inline static var MIN_TIME = 1.0;
 
-	// Browsers will load create(), you can make your song load a custom directory there
-	// If you're compiling to desktop (or something that doesn't use NO_PRELOAD_ALL), search for getNextState instead
-	// I'd recommend doing it on both actually lol
-	
 	// TO DO: Make this easier
 	
 	var target:FlxState;
@@ -159,7 +155,7 @@ class LoadingState extends MusicBeatState
 		Paths.setCurrentLevel(directory);
 		trace('Setting asset folder to ' + directory);
 
-		#if NO_PRELOAD_ALL
+		#if LOADING_SCREEN
 		var loaded:Bool = false;
 		if (PlayState.SONG != null) {
 			loaded = isSoundLoaded(getSongPath()) && (!PlayState.SONG.needsVoices || isSoundLoaded(getVocalPath())) && isLibraryLoaded("shared") && isLibraryLoaded('week_assets');
@@ -174,7 +170,7 @@ class LoadingState extends MusicBeatState
 		return target;
 	}
 	
-	#if NO_PRELOAD_ALL
+	#if LOADING_SCREEN
 	static function isSoundLoaded(path:String):Bool
 	{
 		trace(path);
