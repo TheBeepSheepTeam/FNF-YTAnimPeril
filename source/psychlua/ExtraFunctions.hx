@@ -19,28 +19,28 @@ class ExtraFunctions
 		// Keyboard & Gamepads
 		funk.set("keyboardJustPressed", function(name:String)
 		{
-			return Reflect.getProperty(FlxG.keys.justPressed, name);
+			return Reflect.getProperty(FlxG.keys.justPressed, name.toUpperCase());
 		});
 		funk.set("keyboardPressed", function(name:String)
 		{
-			return Reflect.getProperty(FlxG.keys.pressed, name);
+			return Reflect.getProperty(FlxG.keys.pressed, name.toUpperCase());
 		});
 		funk.set("keyboardReleased", function(name:String)
 		{
-			return Reflect.getProperty(FlxG.keys.justReleased, name);
+			return Reflect.getProperty(FlxG.keys.justReleased, name.toUpperCase());
 		});
 
 		funk.set("anyGamepadJustPressed", function(name:String)
 		{
-			return FlxG.gamepads.anyJustPressed(name);
+			return FlxG.gamepads.anyJustPressed(name.toUpperCase());
 		});
 		funk.set("anyGamepadPressed", function(name:String)
 		{
-			return FlxG.gamepads.anyPressed(name);
+			return FlxG.gamepads.anyPressed(name.toUpperCase());
 		});
 		funk.set("anyGamepadReleased", function(name:String)
 		{
-			return FlxG.gamepads.anyJustReleased(name);
+			return FlxG.gamepads.anyJustReleased(name.toUpperCase());
 		});
 
 		funk.set("gamepadAnalogX", function(id:Int, ?leftStick:Bool = true)
@@ -68,7 +68,7 @@ class ExtraFunctions
 			{
 				return false;
 			}
-			return Reflect.getProperty(controller.justPressed, name) == true;
+			return Reflect.getProperty(controller.justPressed, name.toUpperCase()) == true;
 		});
 		funk.set("gamepadPressed", function(id:Int, name:String)
 		{
@@ -77,7 +77,7 @@ class ExtraFunctions
 			{
 				return false;
 			}
-			return Reflect.getProperty(controller.pressed, name) == true;
+			return Reflect.getProperty(controller.pressed, name.toUpperCase()) == true;
 		});
 		funk.set("gamepadReleased", function(id:Int, name:String)
 		{
@@ -86,7 +86,7 @@ class ExtraFunctions
 			{
 				return false;
 			}
-			return Reflect.getProperty(controller.justReleased, name) == true;
+			return Reflect.getProperty(controller.justReleased, name.toUpperCase()) == true;
 		});
 
 		funk.set("keyJustPressed", function(name:String = '') {
