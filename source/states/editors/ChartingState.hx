@@ -18,6 +18,8 @@ import flixel.group.FlxGroup;
 import flixel.math.FlxPoint;
 import flixel.ui.FlxButton;
 
+import shaders.ColorSwap;
+
 import flixel.util.FlxSort;
 import lime.media.AudioBuffer;
 import lime.utils.Assets;
@@ -2905,9 +2907,9 @@ class ChartingState extends MusicBeatState
 		if (PlayState.isPixelStage) colorList = ['e276ff', '3dcaff', '71e300', 'ff884e'];
 		var susColor:Int = Std.parseInt('0xff' + colorList[note.noteData]);
 
-		var hueColor = ClientPrefs.arrowHSV[note.noteData][0] / 360;
-		var saturationColor = ClientPrefs.arrowHSV[note.noteData][1] / 100;
-		var brightnessColor = ClientPrefs.arrowHSV[note.noteData][2] / 100;
+		var hueColor = ClientPrefs.data.arrowRGB[note.noteData][0] / 360;
+		var saturationColor = ClientPrefs.arrowRGB[note.noteData][1] / 100;
+		var brightnessColor = ClientPrefs.arrowRGB[note.noteData][2] / 100;
 		if (note.noteType == "Hurt Note") susColor = CoolUtil.dominantColor(note); //Make black if hurt note
 
 		var spr:FlxSprite = new FlxSprite(note.x + (GRID_SIZE * 0.5) - 4, note.y + GRID_SIZE / 2).makeGraphic(8, height, susColor);
