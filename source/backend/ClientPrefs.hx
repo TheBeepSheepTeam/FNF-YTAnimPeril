@@ -20,6 +20,7 @@ class SaveVariables {
 	public var splashSkin:String = 'Psych';
 	public var splashAlpha:Float = 0.6;
 	public var coloredHealthBar = true;
+	public var opponentSplashes = false;
 	public var lowQuality:Bool = false;
 	public var fpsRainbow:Bool = false; // kadedev
 	public var healthDrain:Float = 0.023; // how much health you gain, so it should be a fair fight
