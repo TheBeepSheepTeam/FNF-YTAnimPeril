@@ -1,8 +1,5 @@
 package substates;
 
-package meta.data;
-
-import meta.*;
 import flixel.*;
 import flixel.addons.ui.FlxUIInputText;
 import flixel.text.FlxText;
@@ -15,7 +12,7 @@ using StringTools;
  * @see https://github.com/bbpanzu/vswhitty-public
  */
 
-class PasswordPrompt extends meta.MusicBeatSubstate
+class PasswordPrompt extends backend.MusicBeatSubstate
 {
 	var input:FlxUIInputText;
 
