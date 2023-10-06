@@ -129,6 +129,7 @@
 	<haxedef name="hscriptPos" value="true" />
 
 	<setenv name="next" />
+	<haxelib name="parallaxlt"/>
 
 	<!-- Enables a terminal log prompt on debug builds -->
 	<haxelib name="hxcpp-debug-server" if="debug"/>
