@@ -1459,7 +1459,7 @@ class FunkinLua {
 		
 		try{
 			Lua.getglobal(lua, "package");
-			Lua.pushstring(lua, Paths.getLuaPackagePath());
+			Lua.pushstring(lua, Mods.getLuaPackagePath());
 			Lua.setfield(lua, -2, "path");
 			Lua.pop(lua, 1);
 
