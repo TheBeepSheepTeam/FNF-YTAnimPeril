@@ -68,11 +68,6 @@ class FunkinLua {
 		lua = LuaL.newstate();
 		LuaL.openlibs(lua);
 
-		//trace('Lua version: ' + Lua.version());
-		//trace("LuaJIT version: " + Lua.versionJIT());
-
-		//LuaL.dostring(lua, CLENSE);
-
 		this.scriptName = scriptName;
 		var game:PlayState = PlayState.instance;
 		game.luaArray.push(this);
@@ -1463,6 +1458,11 @@ class FunkinLua {
 		DeprecatedFunctions.implement(this);
 		
 		try{
+			Lua.getglobal(lua, "package");
+			Lua.pushstring(lua, Paths.getLuaPackagePath());
+			Lua.setfield(lua, -2, "path");
+			Lua.pop(lua, 1);
+
 			var result:Dynamic = LuaL.dofile(lua, scriptName);
 			var resultStr:String = Lua.tostring(lua, result);
 			if(resultStr != null && result != 0) {
@@ -1481,6 +1481,10 @@ class FunkinLua {
 		}
 		trace('lua file loaded succesfully:' + scriptName);
 
+		Lua_helper.add_callback(lua, "getGameplayChangerValue", function(tag:String) {
+			return ClientPrefs.getGameplaySetting(tag, false);
+		});
+		
 		call('onCreate', []);
 		#end
 	}

@@ -246,6 +246,7 @@ class Main extends Sprite
 	function onCrash(e:UncaughtErrorEvent):Void
 	{
 		var errMsg:String = "";
+		var errMsgPrint:String = "";
 		var path:String;
 		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
 		var dateNow:String = Date.now().toString();
@@ -261,6 +262,7 @@ class Main extends Sprite
 			{
 				case FilePos(s, file, line, column):
 					errMsg += file + " (line " + line + ")\n";
+					errMsgPrint += file + ":" + line + "\n"; // if you Ctrl+Mouse Click its go to the line.
 				default:
 					Sys.println(stackItem);
 			}
@@ -273,7 +275,7 @@ class Main extends Sprite
 
 		File.saveContent(path, errMsg + "\n");
 
-		Sys.println(errMsg);
+		Sys.println(errMsgPrint);
 		Sys.println("Crash dump saved in " + Path.normalize(path));
 
 		Application.current.window.alert(errMsg, "Error!");

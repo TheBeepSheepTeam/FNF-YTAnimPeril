@@ -2040,6 +2040,84 @@ class PlayState extends MusicBeatState
 				if(flValue1 == null || flValue1 < 1) flValue1 = 1;
 				gfSpeed = Math.round(flValue1);
 
+			case 'Set Cam Zoom':
+				var val1:Float = Std.parseFloat(value1);
+				var val2:Float = Std.parseFloat(value2);
+				if (value2 == '')
+					defaultCamZoom = val1;
+				else{
+					defaultCamZoom = val1;
+					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, val2, {ease: FlxEase.sineInOut});
+				}
+
+			case 'Change Icon':
+				iconP1.changeIcon(value1);
+				iconP2.changeIcon(value2);
+				
+			case 'Tween Character Alpha':
+				var char:String = 'all';
+				var people:Array<Character> = [boyfriend, gf, dad];
+				var opacity:Float = Std.parseInt();
+				switch(value1.toLowerCase().trim()) {
+						case 'dad' | 'daddy' | 'pico' | 'opponent':
+							char = 'dad';
+						case 'bf' | 'boyfriend' | 'player':
+							char = 'bf';
+						case 'gf' | 'girlfriend':
+							char = 'gf';
+						case 'all' | 'everyone' | 'everybody':
+							char = 'all';
+						default:
+							char = 'all';
+					}
+	
+				switch(char) {
+						case 'dad':
+							FlxTween.tween(dad, {alpha: opacity}, 1, {ease: FlxEase.quadInOut, onComplete:
+								function (twn:FlxTween)
+								{
+									dad.alpha = opacity;
+								}
+							});
+	
+						case 'bf':
+							FlxTween.tween(alpha, {alpha: opacity}, 1, {ease: FlxEase.quadInOut, onComplete:
+								function (twn:FlxTween)
+								{
+									boyfriend.alpha = opacity;
+								}
+							});
+	
+						case 'gf':
+							FlxTween.tween(gf, {alpha: opacity}, 1, {ease: FlxEase.quadInOut, onComplete:
+								function (twn:FlxTween)
+								{
+									gf.alpha = opacity;
+								}
+							});
+	
+						case 'all':
+							FlxTween.tween(dad, {alpha: opacity}, 1, {ease: FlxEase.quadInOut, onComplete:
+								function (twn:FlxTween)
+								{
+									dad.alpha = opacity;
+								}
+							});
+	
+							FlxTween.tween(alpha, {alpha: opacity}, 1, {ease: FlxEase.quadInOut, onComplete:
+								function (twn:FlxTween)
+								{
+									boyfriend.alpha = opacity;
+								}
+							});
+	
+							FlxTween.tween(gf, {alpha: opacity}, 1, {ease: FlxEase.quadInOut, onComplete:
+								function (twn:FlxTween)
+								{
+									gf.alpha = opacity;
+								}
+							});
+				}
 			case 'Add Camera Zoom':
 				if(ClientPrefs.data.camZooms && FlxG.camera.zoom < 1.35) {
 					if(flValue1 == null) flValue1 = 0.015;

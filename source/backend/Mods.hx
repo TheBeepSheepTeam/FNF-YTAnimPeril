@@ -7,6 +7,7 @@ import sys.io.File;
 import lime.utils.Assets;
 #end
 import tjson.TJSON as Json;
+import haxe.io.Path;
 
 typedef ModsList = {
 	enabled:Array<String>,
@@ -21,6 +22,7 @@ class Mods
 		'characters',
 		'custom_events',
 		'custom_notetypes',
+		'custom_gamechangers',
 		'data',
 		'songs',
 		'music',
@@ -59,7 +61,7 @@ class Mods
 		if(FileSystem.exists(modsFolder)) {
 			for (folder in FileSystem.readDirectory(modsFolder))
 			{
-				var path = haxe.io.Path.join([modsFolder, folder]);
+				var path = Path.join([modsFolder, folder]);
 				if (sys.FileSystem.isDirectory(path) && !ignoreModFolders.contains(folder.toLowerCase()) && !list.contains(folder))
 					list.push(folder);
 			}
@@ -67,6 +69,29 @@ class Mods
 		#end
 		return list;
 	}
+
+	#if LUA_ALLOWED
+	static public function getLuaPackagePath():String {
+		var toAdd:Array<String> = ['.'];
+		#if MODS_ALLOWED
+		toAdd.push('./mods');
+		if (currentModDirectory != null && currentModDirectory.length > 0)
+			toAdd.push('./mods/$currentModDirectory');
+		for (mod in getGlobalMods())
+			toAdd.push('./mods/$mod');
+		#end
+		toAdd.push('./assets');
+		var paths:Array<String> = [];
+		for (path in toAdd) {
+			#if sys
+			path = FileSystem.absolutePath(path);
+			#end
+			paths.push(Path.join([path, '?.lua']));
+			paths.push(Path.join([path, '?', 'init.lua']));
+		}
+		return paths.join(';');
+	}
+	#end
 	
 	inline public static function mergeAllTextsNamed(path:String, defaultDirectory:String = null, allowDuplicates:Bool = false)
 	{

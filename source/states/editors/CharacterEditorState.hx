@@ -140,7 +140,8 @@ class CharacterEditorState extends MusicBeatState
 		\nSpace - Play Animation
 		\nArrow Keys/Drag & Drop - Move Character Offset
 		\nT - Reset Current Offset
-		\nHold Shift to Move 10x faster\n".split('\n');
+		\nHold down Shift to Move 10x faster
+		\nHold down Control to be able to hold down the Arrow Keys".split('\n');
 
 		for (i in 0...tipTextArray.length-1)
 		{
@@ -1204,6 +1205,8 @@ class CharacterEditorState extends MusicBeatState
 					FlxG.keys.justPressed.UP,
 					FlxG.keys.justPressed.DOWN
 				];
+
+				if (FlxG.keys.pressed.CONTROL) controlArray = [FlxG.keys.pressed.LEFT, FlxG.keys.pressed.RIGHT, FlxG.keys.pressed.UP, FlxG.keys.pressed.DOWN];
 
 				for (i in 0...controlArray.length) {
 					if(controlArray[i]) {
