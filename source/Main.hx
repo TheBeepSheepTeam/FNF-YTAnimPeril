@@ -27,13 +27,14 @@ import sys.io.File;
 import sys.io.Process;
 #end
 
+using StringTools;
+
 #if linux
 @:cppInclude('./external/gamemode_client.h')
 @:cppFileCode('
 	#define GAMEMODE_AUTO
 ')
 #end
-using StringTools;
 
 class Main extends Sprite
 {
